@@ -1,0 +1,1 @@
+export const gamOverIcon = 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQWXPiz2LBjdUd8u5qKXEgrA9cCtyOLVzqklw&usqp=CAU';
