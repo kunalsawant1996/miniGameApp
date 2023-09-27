@@ -1,25 +1,38 @@
 import React from 'react';
-import {StyleSheet, Text, View} from 'react-native';
+import {KeyboardAvoidingView, StyleSheet, Text, View,StatusBar,ScrollView, useWindowDimensions} from 'react-native';
 
 import GuessNumber from './src/components/index';
+import TenInputs from './src/components/tenInputs/tenInputs';
 
 function App() {
+  const {styles} = useStyles();
   return (
-    <View style={style.container}>
-      <View style={style.headerTitle}>
+    // <View style={styles.container}>
+    //   <TenInputs />
+    // </View>
+    <KeyboardAvoidingView behavior='height' style={styles.container}>
+      <StatusBar
+        animated={true}
+        backgroundColor="#61dafb"
+        barStyle="dark-content"
+      />
+      <View style={styles.headerTitle}>
         <Text style={{color: 'black', fontWeight: 'bold', fontSize: 20}}>
           Guess a Number
         </Text>
       </View>
       <GuessNumber />
-    </View>
+    </KeyboardAvoidingView>
   );
 }
 
-const style = StyleSheet.create({
+const useStyles = () => {
+  const {height, width} = useWindowDimensions()
+  const styles = StyleSheet.create({
   container: {
     flex: 1,
     marginTop: 0,
+    // height:width > height ? width : height
   },
   headerTitle: {
     alignItems: 'center',
@@ -28,5 +41,7 @@ const style = StyleSheet.create({
     padding: 15,
   },
 });
+return {styles}
+}
 
 export default App;
